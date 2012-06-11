@@ -2479,7 +2479,7 @@ Source: http://www.semicon.toshiba.co.jp/td/en/Opto/Photocoupler/en_20050928_TLP
 <part name="GND1" library="SparkFun" deviceset="GND" device=""/>
 <part name="P+1" library="SparkFun" deviceset="VCC" device=""/>
 <part name="U$1" library="adafruit" deviceset="MIDIJACK" device="" value="MIDI-IN"/>
-<part name="OK1" library="optocoupler" deviceset="TLP283" device=""/>
+<part name="OK1" library="optocoupler" deviceset="TLP283" device="" value="PC81100NSZ0F"/>
 <part name="R1" library="SparkFun" deviceset="RESISTOR" device="AXIAL-0.3" value="220 ohm"/>
 <part name="U$2" library="adafruit" deviceset="MIDIJACK" device="" value="MIDI-OUT"/>
 <part name="GND2" library="SparkFun" deviceset="GND" device=""/>
@@ -2498,6 +2498,7 @@ Source: http://www.semicon.toshiba.co.jp/td/en/Opto/Photocoupler/en_20050928_TLP
 <sheets>
 <sheet>
 <plain>
+<text x="-15.24" y="137.16" size="25.4" layer="91">JunoSex</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="33.02" y="53.34"/>
