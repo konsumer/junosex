@@ -1,8 +1,8 @@
 /*
 
-Adds Control for params to Roland Alpha Juno 1, 2, 106 & MKS-50 Control
+Adds CC messages to sysex params for Roland Alpha Juno 1, 2, 106 & MKS-50 Control
 
-See here for CC mapping:
+See here for info about available sysex params:
 http://www.vintagesynth.com/roland/sysex.php
 
 Hardware:
@@ -29,12 +29,12 @@ ATMEGA8/168/328 chip pins:
 #endif
 
 // this is the map of midi controls to Sysex controls.
-// keys is Juno param #, val is midi CC#
+// key is Juno param #, val is midi CC#
 byte control_map[PCOUNT];
 
 // this is the list of scale vals for controls that are not 0..7F
 // it's just a list of the "high" number
-// keys is Juno param #, val is top-number in scale
+// key is Juno param #, val is top-number in scale
 byte val_map[PCOUNT];
 
 // optional status indicator
@@ -76,7 +76,6 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   
   // setup mappings
-  // the key is the MIDI CC #, the value is the Juno parameter #
   #ifdef JUNO106
   
     // LFO rate
