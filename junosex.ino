@@ -9,16 +9,9 @@ Hardware:
 
 ATMEGA8/168/328 chip pins:
 
-        diode
-2 (RX) ---|<-- opto-pin
-
-        diode
-3 (TX) --->|-- opto-pin
-
-
+2 (RX) -> photocoupler -> midi-in       
+3 (TX) -> midi-out
 9 & 10 (OSC): 16MHz resonator
-
-
 19 (D13) - optional status LED
 
 */
