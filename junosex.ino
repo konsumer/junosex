@@ -30,15 +30,15 @@ ATMEGA8/168/328 chip pins:
 
 // this is the map of midi controls to Sysex controls.
 // key is Juno param #, val is midi CC#
-byte control_map[PCOUNT];
+byte control_map[PCOUNT] = {0};
 
 // faster lookup for CC #
-byte index_map[127] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+byte index_map[127] = {0};
 
 // this is the list of scale vals for controls that are not 0..7F
 // it's just a list of the "high" number
 // key is Juno param #, val is top-number in scale
-byte val_map[PCOUNT];
+byte val_map[PCOUNT] = {0xFF};
 
 // optional status indicator
 #define LED_PIN 13
@@ -53,7 +53,7 @@ byte val = 0;
 float multiplier = 0;
 
 void HandleControlChange (byte channel, byte number, byte value){      
-  if (index_map[number] != 0){
+  if (index_map[number] != 0xFF){
     // forward control message to sysex
     digitalWrite(LED_PIN, HIGH);
     
