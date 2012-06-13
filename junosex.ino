@@ -32,6 +32,9 @@ ATMEGA8/168/328 chip pins:
 // key is Juno param #, val is midi CC#
 byte control_map[PCOUNT];
 
+// faster lookup for CC #
+byte index_map[127] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
 // this is the list of scale vals for controls that are not 0..7F
 // it's just a list of the "high" number
 // key is Juno param #, val is top-number in scale
@@ -46,29 +49,26 @@ byte i = 0;
 // value to send to Juno param
 byte val = 0;
 
-// scale to use
+// scale to use in sysex
 float multiplier = 0;
 
-void HandleControlChange (byte channel, byte number, byte value){
-  // find control map
-  for(i=0;i<PCOUNT;i++){
-    if (number == control_map[i]){
-      // forward control message to sysex
-      digitalWrite(LED_PIN, HIGH);
-      
-      // scale value to proper range
-      multiplier = (val_map[i]/127.0);
-      val = multiplier * value;
-      
-      #ifdef JUNO106
-        byte msg[5] = {0x41, 0x32, channel-1, control_map[i], val};
-      #else
-        byte msg[8] = {0x41, 0x36, channel-1, 0x23, 0x20, 0x01, control_map[i], val};
-      #endif
-      MIDI.sendSysEx(sizeof(msg), msg);
-      digitalWrite(LED_PIN, LOW);
-      break;
-    }
+void HandleControlChange (byte channel, byte number, byte value){      
+  if (index_map[number] != 0){
+    // forward control message to sysex
+    digitalWrite(LED_PIN, HIGH);
+    
+    // scale value to proper range
+    multiplier = (val_map[index_map[number]]/127.0);
+    val = multiplier * value;
+    
+    #ifdef JUNO106
+      byte msg[5] = {0x41, 0x32, channel-1, index_map[number], val};
+    #else
+      byte msg[8] = {0x41, 0x36, channel-1, 0x23, 0x20, 0x01, index_map[number], val};
+    #endif
+    
+    MIDI.sendSysEx(sizeof(msg), msg);
+    digitalWrite(LED_PIN, LOW);
   }
 }
 
@@ -288,10 +288,24 @@ void setup() {
     val_map[0x23] = 0xC;
   #endif
   
+  // makes lookup faster. I could probably improve storage, with somehting smarter.
+  // this is just control_map in reverse
+  for (i=0;i< PCOUNT;i++){
+    index_map[control_map[i]] = i;
+  }
+  
+  
   // you could also listen on just one channel, if you have a lot of devices chatting CCs on other channels
   MIDI.begin();
   MIDI.setHandleControlChange(HandleControlChange);
   
+  // blink LED to say "hello"
+  for (i=0; i<4; i++){
+    digitalWrite(LED_PIN, HIGH);
+    delay(100);
+    digitalWrite(LED_PIN, LOW);
+    delay(100);
+  }
 }
 
 void loop() {
