@@ -8,7 +8,7 @@ The [Arduino MIDI Library] is required.
 
 Follow the schematic to put it together. I will provide better instructions, later. I used [ArduinoISP] running on a [teensy] to program an [ATMEGA8]. I used a [resonator] to be cheap and lazy (rather than a crystal and 2 capacitors.)
 
-If you are using a [cheap-o USB-to_MIDI adapter], you can open it up, and solder the wires direct to TX/RX, and use the power/ground from USB (inside adapter) to make it all simpler/cheaper.
+If you are using a [cheap-o USB-to-MIDI adapter], you can open it up, and solder the wires direct to TX/RX, and use the power/ground from USB (inside adapter) to make it all simpler/cheaper.
 
 ## Modification
 
@@ -26,4 +26,4 @@ Some ideas:
 [Arduino MIDI Library]: http://arduino.cc/playground/Main/MIDILibrary
 [wireless]: http://www.sparkfun.com/products/10532
 [teensy]: http://www.pjrc.com/store/teensy.html
-[cheap-o USB-to_MIDI adapter]: https://www.google.com/search?q=midi+to+usb&tbm=shop&tbs=p_ord:p
+[cheap-o USB-to-MIDI adapter]: https://www.google.com/search?q=midi+to+usb&tbm=shop&tbs=p_ord:p
