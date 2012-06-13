@@ -10,6 +10,8 @@ Follow the [schematic] to put it together. I will provide better instructions, l
 
 If you are using a [cheap-o USB-to-MIDI adapter], you can open it up, and solder the wires direct to TX/RX, and use the power/ground from USB (inside adapter) to make it all simpler/cheaper.
 
+If you want it to run on batteries, use a 9V battery and a [7805 regulator].
+
 ## Modification
 
 Feel free to modify. This thing is super-simple.
@@ -28,3 +30,4 @@ Some ideas:
 [teensy]: http://www.pjrc.com/store/teensy.html
 [cheap-o USB-to-MIDI adapter]: https://www.google.com/search?q=midi+to+usb&tbm=shop&tbs=p_ord:p
 [schematic]: https://github.com/konsumer/junosex/raw/master/schematic.png
+[7805 regulator]: http://www.mouser.com/ProductDetail/ON-Semiconductor/MC7805CTG/?qs=%252b9%2fcbd0IE0RkDYggsVZtGe3PoqBzrkPO
