@@ -6,7 +6,7 @@ The [Arduino MIDI Library] is required.
 
 ## Hardware
 
-Follow the schematic to put it together. I will provide better instructions, later. I used [ArduinoISP] running on a [teensy] to program an [ATMEGA8]. I used a [resonator] to be cheap nd lazy (rather than a crystal and 2 capacitors.)
+Follow the schematic to put it together. I will provide better instructions, later. I used [ArduinoISP] running on a [teensy] to program an [ATMEGA8]. I used a [resonator] to be cheap and lazy (rather than a crystal and 2 capacitors.)
 
 
 ## Modification
