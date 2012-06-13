@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Junosex : Make Roland Juno sysex messages from sensible MIDI CC messages." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Junosex</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/konsumer/junosex">View on GitHub</a>
+
+          <h1 id="project_title">Junosex</h1>
+          <h2 id="project_tagline">Make Roland Juno sysex messages from sensible MIDI CC messages.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/konsumer/junosex/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/konsumer/junosex/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Control Roland Alpha Juno 1, 2, 106 &amp; MKS-50 with MIDI CC, instead of SysEx</h1>
+
+<p>All decent MIDI sequencers speak CC, but being able to speak SysEx particular to these synths is harder to come by.  This code, when placed on an ATMEGA8/168/328 will do the conversion for you, and allow your computer/ipad/sequencer to get romantic with your Juno.</p>
+
+<p>The <a href="http://arduino.cc/playground/Main/MIDILibrary">Arduino MIDI Library</a> is required. I compiled the code in the Arduino IDE.</p>
+
+<h2>Hardware</h2>
+
+<p>Follow the <a href="https://github.com/konsumer/junosex/raw/master/schematic.png">schematic</a> to put it together. I will provide better instructions, later. I used <a href="http://arduino.cc/en/Tutorial/ArduinoISP">ArduinoISP</a> running on a <a href="http://www.pjrc.com/store/teensy.html">teensy</a> to program an <a href="http://www.mouser.com/ProductDetail/Atmel/ATMEGA8-16PU/?qs=7JStj%2fjQ2SHlSx6QootzDTUTMpkFcVaHHuOB6ZSDMnk%3d">ATMEGA8</a>. I used a <a href="http://www.mouser.com/Search/ProductDetail.aspx?R=HWZT-16.00MDvirtualkey52750000virtualkey815-HWZT-16.00MD">resonator</a> to be cheap and lazy (rather than a crystal and 2 capacitors.)</p>
+
+<p>If you are using a <a href="https://www.google.com/search?q=midi+to+usb&amp;tbm=shop&amp;tbs=p_ord:p">cheap-o USB-to-MIDI adapter</a>, you can open it up, and solder the wires direct to TX/RX, and use the power/ground from USB (inside adapter) to make it all simpler/cheaper.</p>
+
+<p>If you want it to run on batteries, use a 9V battery and a <a href="http://www.mouser.com/ProductDetail/ON-Semiconductor/MC7805CTG/?qs=%252b9%2fcbd0IE0RkDYggsVZtGe3PoqBzrkPO">7805 regulator</a>.</p>
+
+<h2>Modification</h2>
+
+<p>Feel free to modify. This thing is super-simple.</p>
+
+<p>Some ideas:</p>
+
+<ul>
+<li>put RGB LEDs on PWM pins, for cool light-effects when different control messages are sent</li>
+<li>add knobs to change how CCs are interpreted, or set values directly</li>
+<li>Attach <a href="http://www.sparkfun.com/products/10532">wireless</a> to it for cheap, so you can hide your computer/sequencer.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Junosex maintained by <a href="https://github.com/konsumer">konsumer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
