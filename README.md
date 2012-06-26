@@ -2,7 +2,7 @@
 
 All decent MIDI sequencers speak CC, but being able to speak SysEx particular to these synths is harder to come by.  This code, when placed on an ATMEGA8/168/328 will do the conversion for you, and allow your computer/ipad/sequencer to get romantic with your Juno.
 
-The [Arduino MIDI Library] is required.
+The [Arduino MIDI Library] is required. I compiled the code in the Arduino IDE.
 
 ## Hardware
 
