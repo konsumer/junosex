@@ -12,6 +12,8 @@ If you are using a [cheap-o USB-to-MIDI adapter], you can open it up, and solder
 
 If you want it to run on batteries, use a 9V battery and a [7805 regulator].
 
+I made a full [parts list], for mouser, to build what is listed in the schematic. I just picked parts that are cheap and available. Feel free to choose replacements.
+
 ## Modification
 
 Feel free to modify. This thing is super-simple.
@@ -31,3 +33,4 @@ Some ideas:
 [cheap-o USB-to-MIDI adapter]: https://www.google.com/search?q=midi+to+usb&tbm=shop&tbs=p_ord:p
 [schematic]: https://github.com/konsumer/junosex/raw/master/schematic.png
 [7805 regulator]: http://www.mouser.com/ProductDetail/ON-Semiconductor/MC7805CTG/?qs=%252b9%2fcbd0IE0RkDYggsVZtGe3PoqBzrkPO
+[parts list]: http://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=fe0a4b4498
