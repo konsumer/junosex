@@ -1,0 +1,79 @@
+#!/usr/bin/env node
+
+var optimist = require('optimist'), midi = require('midi'), input = new midi.input(), output = new midi.output();
+var mapping = require('./mapping');
+var names = mapping.names, vals = mapping.vals, controls = mapping.controls;
+
+
+var argv = optimist
+    .usage('Translate CC messages to Juno SysSex\nUsage: $0')
+    .boolean('help')
+    .alias('help', '?')
+    .alias('help', 'h')
+    .describe('help', 'this help screen')
+    .check(function(argv){
+        if (argv.help){
+            optimist.showHelp();
+            process.exit();
+        }
+    })
+
+    .boolean('list')
+    .alias('list', 'l')
+    .describe('list', 'get a list of device IDs for --device')
+    .check(function(argv){
+        if (argv.list){
+            var i, c = output.getPortCount();
+            for(i = 0; i < c; i++) {
+                if (output.getPortName(i) != "JunoSex"){
+                    console.log(i, output.getPortName(i));
+                }
+            }
+            process.exit();
+        }
+    })
+
+    .default('device',0)
+    .alias('device', 'd')
+    .describe('device', 'the hardware MIDI device ID that your Juno is attached to')
+
+    .default('type',1)
+    .alias('type', 't')
+    .describe('type', 'the type of Juno: 1, 2, 106, or mks')
+    .check(function(argv){
+        if (argv.type!= 1 && argv.type!= 2 && argv.type!= 'mks'){
+            throw("type must be 1, 2, 106, or mks");
+        }
+    })
+    
+    .argv;
+
+
+
+input.on('message', function(deltaTime, message) {
+    if (message[0] > 175 && message[0] < 192){ // control message
+        var d = (argv.type == 106) ? 0 : 1;
+        var channel = message[0]-176;
+        var cc = message[1];
+        var val = message[2];
+
+        // find JUNO control that corresponds to this CC
+        var j = -1;
+        controls[d].forEach(function(v,i){
+            if (v == cc){ j = i; }
+        });
+        if (j != -1){
+            val = Math.floor((vals[d][j]/127) * val);
+            console.log(names[d][j] + ' (' + channel + '): ' + val);
+            // send sysex for JUNO
+            output.sendMessage([0xf0, 0x41, 0x32, channel, j, val, 0xf7]);
+        }else{
+            console.log('Not Mapped  (' + channel + '): ' + [cc, val]);
+        }
+    }
+    // in addition to sysex, passthrough all messages
+    output.sendMessage(message);
+});
+
+input.openVirtualPort("JunoSex");
+

@@ -1,0 +1,8 @@
+{
+  "name": "junosex-cli",
+  "version":"0.0.1",
+  "dependencies": {
+    "midi":"",
+    "optimist":""
+  }
+}
