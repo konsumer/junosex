@@ -16,13 +16,13 @@ To install the CLI dependencies, run this, in the software directory:
 
 ### GUI
 
-I only tested this on Mac, so that is the only platform I included, but the proecess should be fairly similar. For Mac, just extract software/JunoSex-mac.zip, and run.
+I only tested this on Mac, so that is the only platform I included, but the process should be fairly similar. For Mac, just extract software/JunoSex-mac.zip, and run. For other platforms, you can run `npm install` to build MIDI, put the contents of junosex.nw (make package.json be in root) into a zip file and change the extension to `.nw`, which should make it run if you have the [node-webkit] runtime installed. They also have some info on building a stand-alone app on their site.
 
-The build process is the same as CLI, using the software/junosex.nw directory and the [node-webkit] runtime for your system.
+The build process is the same as CLI, using the software/junosex.nw directory and the [node-webkit] runtime for your system. I had to use `nw-gyp` to make it build the MIDI library for 32bit (a current limitation of [node-webkit]: Mac requires 32bit versions of everything.) but Mac-peeps should be covered with premade zipfile.
 
 ## Hardware Version
 
-The hardware version can be made with an Arduino and a [MIDI shield] or [MIDI breakout], or you can make it on a custom PCB with an ATMEGA chip, or a [cheap-o USB-to-MIDI adapter] and an ATMEGA328/Arduino.
+The hardware version can be made with an Arduino and a [MIDI shield] or [MIDI breakout], or you can make it on a custom PCB with an ATMEGA chip, or a [cheap-o USB-to-MIDI adapter] and an ATMEGA/Arduino.
 
 The [Arduino MIDI Library] is required. I compiled the code in the Arduino IDE.
 
