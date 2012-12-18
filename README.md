@@ -14,6 +14,10 @@ To install the CLI dependencies, run this, in the software directory:
 
     npm install
 
+You can get help with:
+
+    ./junosex --help
+
 ### GUI
 
 I only tested this on Mac, so that is the only platform I included, but the process should be fairly similar. For Mac, just extract software/JunoSex-mac.zip, and run. For other platforms, you can run `npm install` to build MIDI, put the contents of junosex.nw (make package.json be in root) into a zip file and change the extension to `.nw`, which should make it run if you have the [node-webkit] runtime installed. They also have some info on building a stand-alone app on their site.
