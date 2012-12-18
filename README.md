@@ -2,16 +2,23 @@
 
 All decent MIDI sequencers speak CC, but being able to speak SysEx particular to these synths is harder to come by.  This code, when placed on an ATMEGA8/168/328 will do the conversion for you, and allow your computer/ipad/sequencer to get romantic with your Juno.
 
-There are 2 versions. One is a software implementation, and one is an Arduino-based version. I made several options for putitng it together in either form.
+There are 2 versions. One is a software implementation, and one is an Arduino-based version. I made several options for putting it together in either form.
 
 ## Software Version
 
-I made a CLI-version, and a GUI version.  The downloads for this project are the GUI version (same code in junosex.nw), or you can use software/junosex in the command-line. To install the CLI dependencies, run this, in the software directory:
+I  made a CLI-version, and a GUI version.
+
+### command-line
+
+To install the CLI dependencies, run this, in the software directory:
 
     npm install
 
+### GUI
 
-For the GUI, just download the version for your system, and run it, or download software/junosex.nw and drag it to [node-webkit] runtime.
+I only tested this on Mac, so that is the only platform I included, but the proecess should be fairly similar. For Mac, just extract software/JunoSex-mac.zip, and run.
+
+The build process is the same as CLI, using the software/junosex.nw directory and the [node-webkit] runtime for your system.
 
 ## Hardware Version
 
@@ -35,7 +42,7 @@ I made a full [parts list], for mouser, to build what is listed in the schematic
 
 If you are using a [cheap-o USB-to-MIDI adapter], you can open it up, and solder the wires direct to TX/RX, and use the power/ground from USB (inside adapter) to make it all simpler/cheaper.
 
-## Modification
+### Modification
 
 Feel free to modify. This thing is super-simple.
 
