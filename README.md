@@ -61,7 +61,7 @@ Some ideas:
 [Arduino MIDI Library]: http://arduino.cc/playground/Main/MIDILibrary
 [wireless]: http://www.sparkfun.com/products/10532
 [teensy]: http://www.pjrc.com/store/teensy.html
-[cheap-o USB-to-MIDI adapter]: https://www.google.com/search?q=midi+to+usb&tbm=shop&tbs=p_ord:p
+[cheap-o USB-to-MIDI adapter]: http://shiftmore.blogspot.com/2010/01/quick-and-dirty-arduino-midi-over-usb.html
 [schematic]: https://github.com/konsumer/junosex/raw/master/schematic.png
 [7805 regulator]: http://www.mouser.com/ProductDetail/ON-Semiconductor/MC7805CTG/?qs=%252b9%2fcbd0IE0RkDYggsVZtGe3PoqBzrkPO
 [parts list]: http://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=fe0a4b4498
